@@ -1,15 +1,24 @@
 package br.com.erudio.simplecrud.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @SerializedName("id")
+    @Expose
     private Long id;
 
+    @SerializedName("cpfcnpj")
+    @Expose
     private String cpfcnpj;
 
+    @SerializedName("nomeNomeFantasia")
+    @Expose
     private String nomeNomeFantasia;
 
     public Pessoa() {}

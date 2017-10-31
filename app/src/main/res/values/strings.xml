@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Gerenciamento de Contas</string>
 
-    <array name="teams">
-        <item>Avengers</item>
-        <item>X Men</item>
-        <item>Justice League</item>
-    </array>
+    <string name="hint_name">Nome</string>
+    <string name="hint_cpf">CPF</string>
+    <string name="hint_birthday">Data de nascimento</string>
+    <string name="action_submit">Salvar</string>
+    <string name="title_pessoa_fisica">Pessoa Física</string>
+    <string name="mssg_error_saving_person">Erro ao salvar a pessoa</string>
 </resources>

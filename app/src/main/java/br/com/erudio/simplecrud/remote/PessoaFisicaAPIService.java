@@ -1,5 +1,7 @@
 package br.com.erudio.simplecrud.remote;
 
+import java.util.Date;
+
 import br.com.erudio.simplecrud.model.PessoaFisica;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -23,7 +25,7 @@ public interface PessoaFisicaAPIService {
     Call<PessoaFisica> savePost(
             @Field("cpfcnpj") String cpfcnpj,
             @Field("nomeNomeFantasia") String nomeNomeFantasia,
-            @Field("nomeRazaoSocial") long nomeRazaoSocial);
+            @Field("dataDeNascimento") Date dataDeNascimento);
 
     @PUT("/pessoaFisica/{id}")
     @FormUrlEncoded
@@ -31,7 +33,7 @@ public interface PessoaFisicaAPIService {
             @Path("id") long id,
             @Field("cpfcnpj") String cpfcnpj,
             @Field("nomeNomeFantasia") String nomeNomeFantasia,
-            @Field("nomeRazaoSocial") long nomeRazaoSocial);
+            @Field("dataDeNascimento") Date dataDeNascimento);
 
     @DELETE("/pessoaFisica/{id}")
     Call<PessoaFisica> deletePost(@Path("id") long id);

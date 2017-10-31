@@ -1,11 +1,16 @@
 package br.com.erudio.simplecrud.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 public class PessoaFisica extends Pessoa{
 
     private static final long serialVersionUID = 1L;
 
+    @SerializedName("dataDeNascimento")
+    @Expose
     private Date dataDeNascimento;
 
     public PessoaFisica() {}

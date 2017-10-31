@@ -1,9 +1,14 @@
 package br.com.erudio.simplecrud.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class PessoaJuridica extends Pessoa {
 
     private static final long serialVersionUID = 1L;
 
+    @SerializedName("nomeRazaoSocial")
+    @Expose
     private String nomeRazaoSocial;
     
     public PessoaJuridica() {}
