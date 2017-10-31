@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyHeroApp</string>
+    <string name="app_name">Gerenciamento de Contas</string>
 
     <array name="teams">
         <item>Avengers</item>

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.erudio.simplecrud">
 
-    <!-- this is the internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application

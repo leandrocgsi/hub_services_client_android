@@ -5,9 +5,8 @@ import java.util.Date;
 public class PessoaFisica extends Pessoa{
 
     private static final long serialVersionUID = 1L;
-    private Date dataDeNascimento;
-    private Long id;
 
+    private Date dataDeNascimento;
 
     public PessoaFisica() {}
 
@@ -19,36 +18,27 @@ public class PessoaFisica extends Pessoa{
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public Long getId() {
-        return id;
-    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
-    public void setId(Long id) {
-        this.id = id;
+        PessoaFisica that = (PessoaFisica) o;
+
+        return dataDeNascimento.equals(that.dataDeNascimento);
+
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
         int result = super.hashCode();
-        result = prime * result + ((dataDeNascimento == null) ? 0 : dataDeNascimento.hashCode());
+        result = 31 * result + dataDeNascimento.hashCode();
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!super.equals(obj)) return false;
-        if (getClass() != obj.getClass()) return false;
-        PessoaFisica other = (PessoaFisica) obj;
-        if (dataDeNascimento == null) {
-            if (other.dataDeNascimento != null) return false;
-        } else if (!dataDeNascimento.equals(other.dataDeNascimento)) return false;
-        return true;
-    }
-
-    @Override
     public String toString() {
-        return "PessoaFisica [dataDeNascimento=" + dataDeNascimento + "]";
+        return "PessoaFisica{dataDeNascimento=" + dataDeNascimento + '}';
     }
 }
