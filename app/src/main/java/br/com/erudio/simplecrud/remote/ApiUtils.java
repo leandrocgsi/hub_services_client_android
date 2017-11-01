@@ -8,6 +8,6 @@ public class ApiUtils {
 
     public static PessoaFisicaAPIService getAPIService() {
 
-        return RetrofitClient.getClient(BASE_URL).create(PessoaFisicaAPIService.class);
+        return RetrofitBuilder.getClient(BASE_URL).create(PessoaFisicaAPIService.class);
     }
 }

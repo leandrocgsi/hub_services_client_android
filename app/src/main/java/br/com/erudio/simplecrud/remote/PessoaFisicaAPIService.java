@@ -1,6 +1,7 @@
 package br.com.erudio.simplecrud.remote;
 
 import java.util.Date;
+import java.util.List;
 
 import br.com.erudio.simplecrud.model.PessoaFisica;
 import retrofit2.Call;
@@ -15,7 +16,7 @@ import retrofit2.http.Path;
 public interface PessoaFisicaAPIService {
 
     @GET("/pessoaFisica/")
-    Call<PessoaFisica> getPessoas();
+    Call<List<PessoaFisica>> getPessoas();
 
     @GET("/pessoaFisica/{id}")
     Call<PessoaFisica> getPessoa(@Path("id") long id);

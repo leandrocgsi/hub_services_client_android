@@ -3,7 +3,7 @@ package br.com.erudio.simplecrud.remote;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+public class RetrofitBuilder {
 
     private static Retrofit retrofit = null;
 
