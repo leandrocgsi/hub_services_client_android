@@ -98,4 +98,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, R.string.mssg_error_saving_person, Toast.LENGTH_SHORT).show();
     }
 }
-//SEE: https://www.simplifiedcoding.net/retrofit-android-example/
+//SEE: https://www.simplifiedcoding.net/retrofit-android-example/           and             http://swarajsaaj.github.io/posts/consuming-rest-api-using-retrofit-android
