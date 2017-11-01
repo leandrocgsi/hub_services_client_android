@@ -17,6 +17,8 @@ import java.util.Date;
 import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.PessoaFisica;
 import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Callback;
@@ -58,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String birthday = editTextBirthday.getText().toString().trim();
 
         api.savePerson(cpf, name, new Date()).enqueue(new Callback<PessoaFisica>() {
+
             @Override
             public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
-                Log.i(TAG, response.body().toString());
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
                     Log.i(TAG, "pessoaFisica submitted to API." + response.body().toString());
