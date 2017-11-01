@@ -1,5 +1,6 @@
 package br.com.erudio.simplecrud.config;
 
+import br.com.erudio.simplecrud.utils.ToStringConverterFactory;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -11,6 +12,7 @@ public class RetrofitBuilder {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
+                    //.addConverterFactory(new ToStringConverterFactory())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

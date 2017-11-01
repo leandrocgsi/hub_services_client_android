@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         api.savePerson(cpf, name, new Date()).enqueue(new Callback<PessoaFisica>() {
             @Override
             public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
+                Log.i(TAG, response.body().toString());
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
                     Log.i(TAG, "pessoaFisica submitted to API." + response.body().toString());
