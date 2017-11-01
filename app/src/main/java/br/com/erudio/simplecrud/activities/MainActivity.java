@@ -1,4 +1,4 @@
-package br.com.erudio.simplecrud;
+package br.com.erudio.simplecrud.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,19 +9,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Date;
+import java.util.List;
 
+import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.PessoaFisica;
 import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -81,6 +78,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
+    /*private void getAllPessoaFisicas() {
+        Call<List<PessoaFisica>> getAllPessoaFisicasCall = api.getPessoas();
+
+        getAllPessoaFisicasCall.enqueue(new Callback<List<PessoaFisica>>() {
+            @Override
+            public void onResponse(Call<List<PessoaFisica>> call, Response<List<PessoaFisica>> response) {
+                displayPessoaFisica(response.body().get(0));
+            }
+
+            @Override
+            public void onFailure(Call<List<PessoaFisica>> call, Throwable t) {
+                Log.e(TAG, "Error occured while fetching pessoaFisica.");
+            }
+        });
+    }*/
+
 
     @Override
     public void onClick(View view) {
