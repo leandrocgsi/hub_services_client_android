@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.erudio.simplecrud.model.PessoaFisica;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -22,11 +23,7 @@ public interface PessoaFisicaAPIService {
     Call<PessoaFisica> getPessoa(@Path("id") long id);
 
     @POST("/api/pessoaFisica/")
-    @FormUrlEncoded
-    Call<PessoaFisica> savePerson(
-            @Field("cpfcnpj") String cpfcnpj,
-            @Field("nomeNomeFantasia") String nomeNomeFantasia,
-            @Field("dataDeNascimento") Date dataDeNascimento);
+    Call<PessoaFisica> savePerson(@Body PessoaFisica pessoaFisica);
 
     @PUT("/api/pessoaFisica/{id}")
     @FormUrlEncoded

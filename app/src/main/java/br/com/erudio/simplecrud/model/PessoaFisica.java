@@ -23,7 +23,7 @@ public class PessoaFisica {
 
     @SerializedName("dataDeNascimento")
     @Expose
-    private Date dataDeNascimento;
+    private String dataDeNascimento;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -53,11 +53,11 @@ public class PessoaFisica {
         this.nomeNomeFantasia = nomeNomeFantasia;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 

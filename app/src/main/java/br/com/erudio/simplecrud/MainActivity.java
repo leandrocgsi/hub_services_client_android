@@ -57,9 +57,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         String name = editTextName.getText().toString().trim();
         String cpf = editTextCpf.getText().toString().trim();
-        String birthday = editTextBirthday.getText().toString().trim();
+        Date birthday = new Date();//editTextBirthday.getText().toString().trim();
 
-        api.savePerson(cpf, name, new Date()).enqueue(new Callback<PessoaFisica>() {
+        PessoaFisica pessoaFisica = new PessoaFisica();
+        pessoaFisica.setNomeNomeFantasia(name);
+        pessoaFisica.setCpfcnpj(cpf);
+        pessoaFisica.setDataDeNascimento("1975-12-05");
+
+        api.savePerson(pessoaFisica).enqueue(new Callback<PessoaFisica>() {
 
             @Override
             public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
@@ -93,3 +98,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toast.makeText(this, R.string.mssg_error_saving_person, Toast.LENGTH_SHORT).show();
     }
 }
+//SEE: https://www.simplifiedcoding.net/retrofit-android-example/
