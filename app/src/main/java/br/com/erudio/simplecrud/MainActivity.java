@@ -1,8 +1,7 @@
 package br.com.erudio.simplecrud;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,91 +9,74 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 
+import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.PessoaFisica;
-import br.com.erudio.simplecrud.remote.ApiUtils;
 import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
-
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Callback;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView textViewResponse;
 
-    private PessoaFisicaAPIService service;
+    private EditText editTextName;
+    private EditText editTextCpf;
+    private EditText editTextBirthday;
+
+    private Button buttonSubmit;
+
+    private PessoaFisicaAPIService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText nameEt = (EditText) findViewById(R.id.et_name);
-        final EditText cpfEt = (EditText) findViewById(R.id.et_cpf);
-        final EditText birthdayEt = (EditText) findViewById(R.id.et_birthday);
-        Button submitBtn = (Button) findViewById(R.id.btn_submit);
+        editTextName = (EditText) findViewById(R.id.et_name);
+        editTextCpf = (EditText) findViewById(R.id.et_cpf);
+        editTextBirthday = (EditText) findViewById(R.id.et_birthday);
+
+        Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
-        service = ApiUtils.getAPIService();
+        api = ApiUtils.getAPIService();
 
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = nameEt.getText().toString().trim();
-                String cpf = cpfEt.getText().toString().trim();
-                if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(cpf)) {
-                    sendPost(name, cpf);
-                }
-            }
-        });
+        buttonSubmit.setOnClickListener(this);
     }
 
-    public void showErrorMessage() {
-        Toast.makeText(this, R.string.mssg_error_saving_person, Toast.LENGTH_SHORT).show();
-    }
+    private void insertPerson(){
 
-    public void sendPost(String name, String cpf) {
+        String name = editTextName.getText().toString().trim();
+        String cpf = editTextCpf.getText().toString().trim();
+        String birthday = editTextBirthday.getText().toString().trim();
 
-        service.savePost(name, cpf, new Date()).enqueue(new Callback<PessoaFisica>() {
+        api.savePerson(cpf, name, new Date()).enqueue(new Callback<PessoaFisica>() {
             @Override
             public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
-
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
                     Log.i(TAG, "pessoaFisica submitted to API." + response.body().toString());
                 }
-
             }
 
             @Override
             public void onFailure(Call<PessoaFisica> call, Throwable t) {
-
                 showErrorMessage();
                 Log.e(TAG, "Unable to submit pessoaFisica to API.");
             }
         });
     }
 
-    public void updatePost(long id, String name, String cpf) {
-        service.updatePost(id, name, cpf, new Date()).enqueue(new Callback<PessoaFisica>() {
-            @Override
-            public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
-
-                if(response.isSuccessful()) {
-                    showResponse(response.body().toString());
-                    Log.i(TAG, "pessoaFisica updated." + response.body().toString());
-                }
-            }
-            @Override
-            public void onFailure(Call<PessoaFisica> call, Throwable t) {
-
-                showErrorMessage();
-                Log.e(TAG, "Unable to update pessoaFisica.");
-            }
-        });
+    @Override
+    public void onClick(View view) {
+        insertPerson();
     }
 
     public void showResponse(String response) {
@@ -102,5 +84,9 @@ public class MainActivity extends AppCompatActivity {
             textViewResponse.setVisibility(View.VISIBLE);
         }
         textViewResponse.setText(response);
+    }
+
+    public void showErrorMessage() {
+        Toast.makeText(this, R.string.mssg_error_saving_person, Toast.LENGTH_SHORT).show();
     }
 }

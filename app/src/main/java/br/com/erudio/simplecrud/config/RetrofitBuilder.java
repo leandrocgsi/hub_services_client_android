@@ -1,4 +1,4 @@
-package br.com.erudio.simplecrud.remote;
+package br.com.erudio.simplecrud.config;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

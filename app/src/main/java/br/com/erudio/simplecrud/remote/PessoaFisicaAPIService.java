@@ -15,20 +15,20 @@ import retrofit2.http.Path;
 
 public interface PessoaFisicaAPIService {
 
-    @GET("/pessoaFisica/")
+    @GET("/api/pessoaFisica/")
     Call<List<PessoaFisica>> getPessoas();
 
-    @GET("/pessoaFisica/{id}")
+    @GET("/api/pessoaFisica/{id}")
     Call<PessoaFisica> getPessoa(@Path("id") long id);
 
-    @POST("/pessoaFisica/")
+    @POST("/api/pessoaFisica/")
     @FormUrlEncoded
-    Call<PessoaFisica> savePost(
+    Call<PessoaFisica> savePerson(
             @Field("cpfcnpj") String cpfcnpj,
             @Field("nomeNomeFantasia") String nomeNomeFantasia,
             @Field("dataDeNascimento") Date dataDeNascimento);
 
-    @PUT("/pessoaFisica/{id}")
+    @PUT("/api/pessoaFisica/{id}")
     @FormUrlEncoded
     Call<PessoaFisica> updatePost(
             @Path("id") long id,
@@ -36,7 +36,7 @@ public interface PessoaFisicaAPIService {
             @Field("nomeNomeFantasia") String nomeNomeFantasia,
             @Field("dataDeNascimento") Date dataDeNascimento);
 
-    @DELETE("/pessoaFisica/{id}")
+    @DELETE("/api/pessoaFisica/{id}")
     Call<PessoaFisica> deletePost(@Path("id") long id);
 
 }

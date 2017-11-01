@@ -1,10 +1,12 @@
-package br.com.erudio.simplecrud.remote;
+package br.com.erudio.simplecrud.config;
+
+import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
 
 public class ApiUtils {
 
     private ApiUtils() {}
 
-    public static final String BASE_URL = "http://10.0.2.2:8080/api/";
+    public static final String BASE_URL = "http://10.0.2.2:8080/";
 
     public static PessoaFisicaAPIService getAPIService() {
 
