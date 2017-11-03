@@ -27,11 +27,7 @@ public interface PessoaFisicaAPIService {
 
     @PUT("/api/pessoaFisica/{id}")
     @FormUrlEncoded
-    Call<PessoaFisica> updatePost(
-            @Path("id") long id,
-            @Field("cpfcnpj") String cpfcnpj,
-            @Field("nomeNomeFantasia") String nomeNomeFantasia,
-            @Field("dataDeNascimento") Date dataDeNascimento);
+    Call<PessoaFisica> updatePost(@Path("id") long id, @Body PessoaFisica pessoaFisica);
 
     @DELETE("/api/pessoaFisica/{id}")
     Call<PessoaFisica> deletePost(@Path("id") long id);
