@@ -19,9 +19,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class JuridicalPersonActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = JuridicalPersonActivity.class.getSimpleName();
     private TextView textViewResponse;
 
     private EditText editTextName;
