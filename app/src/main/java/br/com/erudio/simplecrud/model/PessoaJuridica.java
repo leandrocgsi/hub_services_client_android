@@ -41,6 +41,7 @@ public class PessoaJuridica extends Pessoa{
     public String toString() {
         return "PessoaJuridica{" +
                 "nomeRazaoSocial='" + nomeRazaoSocial + '\'' +
+                + '\'' + " " + super.toString() +
                 '}';
     }
 }
