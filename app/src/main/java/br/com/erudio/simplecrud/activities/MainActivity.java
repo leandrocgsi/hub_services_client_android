@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void showErrorMessage() {
-        Toast.makeText(this, R.string.mssg_error_saving_person, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.mssg_error_saving_fisical_person, Toast.LENGTH_SHORT).show();
     }
 }
 //SEE: https://www.simplifiedcoding.net/retrofit-android-example/           and             http://swarajsaaj.github.io/posts/consuming-rest-api-using-retrofit-android
