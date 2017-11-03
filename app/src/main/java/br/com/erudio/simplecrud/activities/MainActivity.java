@@ -112,3 +112,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 //SEE: https://www.simplifiedcoding.net/retrofit-android-example/           and             http://swarajsaaj.github.io/posts/consuming-rest-api-using-retrofit-android
+//https://www.concretepage.com/android/android-options-menu-example-using-getmenuinflater-inflate-oncreateoptionsmenu-and-onoptionsitemselected
