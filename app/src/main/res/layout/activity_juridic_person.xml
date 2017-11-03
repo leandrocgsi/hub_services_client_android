@@ -17,26 +17,26 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/title_pessoa_fisica"/>
+        android:text="@string/title_pessoa_juridica"/>
+
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_fantasy_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_fantasy_name"/>
+
+    <EditText
+        android:id="@+id/et_razao_social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_razao_social"/>
+
+    <EditText
+        android:id="@+id/et_cnpj"
         android:layout_marginTop="18dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_name"/>
-
-    <EditText
-        android:id="@+id/et_cpf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_cpf"/>
-
-
-    <EditText
-        android:id="@+id/et_birthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_birthday"/>
+        android:hint="@string/hint_cnpj"/>
 
     <Button
         android:id="@+id/btn_submit"
