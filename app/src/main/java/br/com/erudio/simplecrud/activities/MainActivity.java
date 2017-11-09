@@ -2,25 +2,11 @@ package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
-
 import br.com.erudio.simplecrud.R;
-import br.com.erudio.simplecrud.config.ApiUtils;
-import br.com.erudio.simplecrud.model.PessoaFisica;
-import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends Activity {
 
@@ -33,7 +19,6 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
