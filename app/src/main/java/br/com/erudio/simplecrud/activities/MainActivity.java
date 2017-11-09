@@ -1,10 +1,13 @@
 package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 
@@ -25,13 +28,32 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int timeout = 50; // make the activity visible for 4 seconds
+
         switch (item.getItemId()) {
             case R.id.pessoa_fisica_menu:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
-                return true;
+                Timer t1 = new Timer();
+                t1.schedule(new TimerTask() {
 
+                    @Override
+                    public void run() {
+                        finish();
+                        Intent homepage = new Intent(MainActivity.this, FisicalPersonActivity.class);
+                        startActivity(homepage);
+                    }
+                }, timeout);
+                return true;
             case R.id.pessoa_juridca_menu:
-                Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+                Timer t2 = new Timer();
+                t2.schedule(new TimerTask() {
+
+                    @Override
+                    public void run() {
+                        finish();
+                        Intent homepage = new Intent(MainActivity.this, JuridicalPersonActivity.class);
+                        startActivity(homepage);
+                    }
+                }, timeout);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

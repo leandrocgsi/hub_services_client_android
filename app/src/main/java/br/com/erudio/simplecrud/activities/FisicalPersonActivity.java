@@ -1,5 +1,6 @@
 package br.com.erudio.simplecrud.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,7 +20,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FisicalPersonActivity extends AppCompatActivity implements View.OnClickListener {
+public class FisicalPersonActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = FisicalPersonActivity.class.getSimpleName();
     private TextView textViewResponse;
