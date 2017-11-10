@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Pessoa implements Serializable {
+public class Person implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -16,9 +16,9 @@ public class Pessoa implements Serializable {
     private String cpfcnpj;
 
     @Expose @SerializedName("nomeNomeFantasia")
-    private String nomeNomeFantasia;
+    private String nameTradeName;
 
-    public Pessoa() {}
+    public Person() {}
 
     public Long getId() {
         return id;
@@ -36,12 +36,12 @@ public class Pessoa implements Serializable {
         this.cpfcnpj = cpfcnpj;
     }
 
-    public String getNomeNomeFantasia() {
-        return nomeNomeFantasia;
+    public String getNameTradeName() {
+        return nameTradeName;
     }
 
-    public void setNomeNomeFantasia(String nomeNomeFantasia) {
-        this.nomeNomeFantasia = nomeNomeFantasia;
+    public void setNameTradeName(String nameTradeName) {
+        this.nameTradeName = nameTradeName;
     }
 
     @Override
@@ -49,12 +49,12 @@ public class Pessoa implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pessoa pessoa = (Pessoa) o;
+        Person person = (Person) o;
 
-        if (id != null ? !id.equals(pessoa.id) : pessoa.id != null) return false;
-        if (cpfcnpj != null ? !cpfcnpj.equals(pessoa.cpfcnpj) : pessoa.cpfcnpj != null)
+        if (id != null ? !id.equals(person.id) : person.id != null) return false;
+        if (cpfcnpj != null ? !cpfcnpj.equals(person.cpfcnpj) : person.cpfcnpj != null)
             return false;
-        return nomeNomeFantasia != null ? nomeNomeFantasia.equals(pessoa.nomeNomeFantasia) : pessoa.nomeNomeFantasia == null;
+        return nameTradeName != null ? nameTradeName.equals(person.nameTradeName) : person.nameTradeName == null;
 
     }
 
@@ -62,16 +62,16 @@ public class Pessoa implements Serializable {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (cpfcnpj != null ? cpfcnpj.hashCode() : 0);
-        result = 31 * result + (nomeNomeFantasia != null ? nomeNomeFantasia.hashCode() : 0);
+        result = 31 * result + (nameTradeName != null ? nameTradeName.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "Pessoa{" +
+        return "Person{" +
                 "id=" + id +
                 ", cpfcnpj='" + cpfcnpj + '\'' +
-                ", nomeNomeFantasia='" + nomeNomeFantasia + '\'' +
+                ", nameTradeName='" + nameTradeName + '\'' +
                 '}';
     }
 }

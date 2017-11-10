@@ -2,7 +2,7 @@ package br.com.erudio.simplecrud.remote;
 
 import java.util.List;
 
-import br.com.erudio.simplecrud.model.PessoaFisica;
+import br.com.erudio.simplecrud.model.NaturalPerson;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -15,19 +15,19 @@ import retrofit2.http.Path;
 public interface NaturalPersonAPIService {
 
     @GET("/api/pessoaFisica/")
-    Call<List<PessoaFisica>> getPessoas();
+    Call<List<NaturalPerson>> getPersons();
 
     @GET("/api/pessoaFisica/{id}")
-    Call<PessoaFisica> getPessoa(@Path("id") long id);
+    Call<NaturalPerson> getPerson(@Path("id") long id);
 
     @POST("/api/pessoaFisica/")
-    Call<PessoaFisica> savePerson(@Body PessoaFisica pessoaFisica);
+    Call<NaturalPerson> savePerson(@Body NaturalPerson naturalPerson);
 
     @PUT("/api/pessoaFisica/{id}")
     @FormUrlEncoded
-    Call<PessoaFisica> updatePost(@Path("id") long id, @Body PessoaFisica pessoaFisica);
+    Call<NaturalPerson> updatePerson(@Path("id") long id, @Body NaturalPerson naturalPerson);
 
     @DELETE("/api/pessoaFisica/{id}")
-    Call<PessoaFisica> deletePost(@Path("id") long id);
+    Call<NaturalPerson> deletePerson(@Path("id") long id);
 
 }

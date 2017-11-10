@@ -2,7 +2,7 @@ package br.com.erudio.simplecrud.remote;
 
 import java.util.List;
 
-import br.com.erudio.simplecrud.model.Pessoa;
+import br.com.erudio.simplecrud.model.Person;
 import br.com.erudio.simplecrud.model.StatusConta;
 import br.com.erudio.simplecrud.model.TipoConta;
 import br.com.erudio.simplecrud.model.TipoTransacao;
@@ -21,5 +21,5 @@ public interface HelperAPIService {
     Call<List<StatusConta>> listAllStatusContas();
 
     @GET("/api/helper/pessoas")
-    Call<List<Pessoa>> listAllPessoas();
+    Call<List<Person>> listAllPersons();
 }

@@ -10,13 +10,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
-import br.com.erudio.simplecrud.model.PessoaJuridica;
+import br.com.erudio.simplecrud.model.LegalPerson;
 import br.com.erudio.simplecrud.remote.LegalPersonAPIService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,41 +57,41 @@ public class JuridicalPersonActivity extends Activity implements View.OnClickLis
         String tradeName = editTradeName.getText().toString().trim();
         String cnpj = editTextCnpj.getText().toString().trim();
 
-        PessoaJuridica pessoaJuridica = new PessoaJuridica();
-        pessoaJuridica.setNomeNomeFantasia(tradeName);
-        pessoaJuridica.setNomeRazaoSocial(companyName);
-        pessoaJuridica.setCpfcnpj(cnpj);
+        LegalPerson legalPerson = new LegalPerson();
+        legalPerson.setNameTradeName(tradeName);
+        legalPerson.setCompanyName(companyName);
+        legalPerson.setCpfcnpj(cnpj);
 
-        api.savePerson(pessoaJuridica).enqueue(new Callback<PessoaJuridica>() {
+        api.savePerson(legalPerson).enqueue(new Callback<LegalPerson>() {
 
             @Override
-            public void onResponse(Call<PessoaJuridica> call, Response<PessoaJuridica> response) {
+            public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "pessoaJuridica submitted to API." + response.body().toString());
+                    Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<PessoaJuridica> call, Throwable t) {
+            public void onFailure(Call<LegalPerson> call, Throwable t) {
                 showErrorMessage();
-                Log.e(TAG, "Unable to submit pessoaJuridica to API.");
+                Log.e(TAG, "Unable to submit legalPerson to API.");
             }
         });
     }
 
-    /*private void getAllPessoaJuridicas() {
-        Call<List<PessoaJuridica>> getAllPessoaJuridicasCall = api.getPessoas();
+    /*private void getAllLegalPersons() {
+        Call<List<LegalPerson>> getAllLegalPersonsCall = api.getPessoas();
 
-        getAllPessoaJuridicasCall.enqueue(new Callback<List<PessoaJuridica>>() {
+        getAllLegalPersonsCall.enqueue(new Callback<List<LegalPerson>>() {
             @Override
-            public void onResponse(Call<List<PessoaJuridica>> call, Response<List<PessoaJuridica>> response) {
-                displayPessoaJuridica(response.body().get(0));
+            public void onResponse(Call<List<LegalPerson>> call, Response<List<LegalPerson>> response) {
+                displayLegalPerson(response.body().get(0));
             }
 
             @Override
-            public void onFailure(Call<List<PessoaJuridica>> call, Throwable t) {
-                Log.e(TAG, "Error occured while fetching pessoaJuridica.");
+            public void onFailure(Call<List<LegalPerson>> call, Throwable t) {
+                Log.e(TAG, "Error occured while fetching legalPerson.");
             }
         });
     }*/

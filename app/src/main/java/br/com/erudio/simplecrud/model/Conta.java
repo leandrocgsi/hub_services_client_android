@@ -33,7 +33,7 @@ public class Conta implements Serializable {
     private Conta contaMatriz;
 
     @Expose @SerializedName("pessoa")
-    private Pessoa pessoa;
+    private Person person;
 
     public Conta() {}
 
@@ -85,12 +85,12 @@ public class Conta implements Serializable {
         this.saldo = saldo;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPerson(Person person) {
+        this.person = person;
     }
     
     public StatusConta getStatusConta() {
@@ -119,7 +119,7 @@ public class Conta implements Serializable {
             return false;
         if (contaMatriz != null ? !contaMatriz.equals(conta.contaMatriz) : conta.contaMatriz != null)
             return false;
-        return pessoa != null ? pessoa.equals(conta.pessoa) : conta.pessoa == null;
+        return person != null ? person.equals(conta.person) : conta.person == null;
 
     }
 
@@ -132,7 +132,7 @@ public class Conta implements Serializable {
         result = 31 * result + (tipoConta != null ? tipoConta.hashCode() : 0);
         result = 31 * result + (statusConta != null ? statusConta.hashCode() : 0);
         result = 31 * result + (contaMatriz != null ? contaMatriz.hashCode() : 0);
-        result = 31 * result + (pessoa != null ? pessoa.hashCode() : 0);
+        result = 31 * result + (person != null ? person.hashCode() : 0);
         return result;
     }
 
@@ -146,7 +146,7 @@ public class Conta implements Serializable {
                 ", tipoConta=" + tipoConta +
                 ", statusConta=" + statusConta +
                 ", contaMatriz=" + contaMatriz +
-                ", pessoa=" + pessoa +
+                ", person=" + person +
                 '}';
     }
 }

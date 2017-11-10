@@ -16,7 +16,7 @@ import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
-import br.com.erudio.simplecrud.model.PessoaFisica;
+import br.com.erudio.simplecrud.model.NaturalPerson;
 import br.com.erudio.simplecrud.remote.NaturalPersonAPIService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,41 +58,41 @@ public class FisicalPersonActivity extends Activity implements View.OnClickListe
         String cpf = editTextCpf.getText().toString().trim();
         Date birthday = new Date();//editTextBirthday.getText().toString().trim();
 
-        PessoaFisica pessoaFisica = new PessoaFisica();
-        pessoaFisica.setNomeNomeFantasia(name);
-        pessoaFisica.setCpfcnpj(cpf);
-        pessoaFisica.setDataDeNascimento("1975-12-05");
+        NaturalPerson naturalPerson = new NaturalPerson();
+        naturalPerson.setNameTradeName(name);
+        naturalPerson.setCpfcnpj(cpf);
+        naturalPerson.setBirthday("1975-12-05");
 
-        api.savePerson(pessoaFisica).enqueue(new Callback<PessoaFisica>() {
+        api.savePerson(naturalPerson).enqueue(new Callback<NaturalPerson>() {
 
             @Override
-            public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
+            public void onResponse(Call<NaturalPerson> call, Response<NaturalPerson> response) {
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "pessoaFisica submitted to API." + response.body().toString());
+                    Log.i(TAG, "naturalPerson submitted to API." + response.body().toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<PessoaFisica> call, Throwable t) {
+            public void onFailure(Call<NaturalPerson> call, Throwable t) {
                 showErrorMessage();
-                Log.e(TAG, "Unable to submit pessoaFisica to API.");
+                Log.e(TAG, "Unable to submit naturalPerson to API.");
             }
         });
     }
 
-    /*private void getAllPessoaFisicas() {
-        Call<List<PessoaFisica>> getAllPessoaFisicasCall = api.getPessoas();
+    /*private void getAllNaturalPersons() {
+        Call<List<NaturalPerson>> getAllNaturalPersonsCall = api.getPersons();
 
-        getAllPessoaFisicasCall.enqueue(new Callback<List<PessoaFisica>>() {
+        getAllNaturalPersonsCall.enqueue(new Callback<List<NaturalPerson>>() {
             @Override
-            public void onResponse(Call<List<PessoaFisica>> call, Response<List<PessoaFisica>> response) {
-                displayPessoaFisica(response.body().get(0));
+            public void onResponse(Call<List<NaturalPerson>> call, Response<List<NaturalPerson>> response) {
+                displayNaturalPerson(response.body().get(0));
             }
 
             @Override
-            public void onFailure(Call<List<PessoaFisica>> call, Throwable t) {
-                Log.e(TAG, "Error occured while fetching pessoaFisica.");
+            public void onFailure(Call<List<NaturalPerson>> call, Throwable t) {
+                Log.e(TAG, "Error occured while fetching naturalPerson.");
             }
         });
     }*/
