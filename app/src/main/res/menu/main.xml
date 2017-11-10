@@ -6,4 +6,11 @@
 
     <item android:id="@+id/pessoa_juridca_menu"
         android:title="@string/title_pessoa_juridica"/>
+
+    <item android:id="@+id/contas"
+        android:title="@string/title_contas"/>
+
+    <item android:id="@+id/transacao"
+        android:title="@string/title_transacao"/>
+
 </menu>

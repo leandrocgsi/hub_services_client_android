@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Gerenciamento de Contas</string>
+    <string name="app_name">Contas</string>
 
     <string name="hint_name">Nome</string>
     <string name="hint_fantasy_name">Nome Fantasia</string>
@@ -11,6 +11,8 @@
     <string name="action_menu">Menu</string>
     <string name="title_pessoa_fisica">Pessoa Física</string>
     <string name="title_pessoa_juridica">Pessoa Jurídica</string>
+    <string name="title_contas">Contas</string>
+    <string name="title_transacao">Transações</string>
     <string name="mssg_error_saving_fisical_person">Erro ao salvar pessoa física</string>
     <string name="mssg_error_saving_juridical_person">Erro ao salvar a pessoa jurídica</string>
 </resources>
