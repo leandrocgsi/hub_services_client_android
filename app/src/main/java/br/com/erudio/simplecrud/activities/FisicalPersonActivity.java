@@ -1,6 +1,7 @@
 package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
@@ -99,6 +102,22 @@ public class FisicalPersonActivity extends Activity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         insertPerson();
+    }
+
+    public void returnToMain(View view) {
+        //setContentView(R.layout.activity_main);
+
+        int timeout = 50;
+        Timer t2 = new Timer();
+        t2.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                finish();
+                Intent homepage = new Intent(FisicalPersonActivity.this, MainActivity.class);
+                startActivity(homepage);
+            }
+        }, timeout);
     }
 
     public void showResponse(String response) {
