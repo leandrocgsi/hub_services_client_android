@@ -8,6 +8,7 @@
     <string name="hint_cnpj">CNPJ</string>
     <string name="hint_birthday">Data de nascimento</string>
     <string name="action_submit">Salvar</string>
+    <string name="action_cancel">Cancelar</string>
     <string name="action_menu">Menu</string>
     <string name="title_pessoa_fisica">Pessoa Física</string>
     <string name="title_pessoa_juridica">Pessoa Jurídica</string>
