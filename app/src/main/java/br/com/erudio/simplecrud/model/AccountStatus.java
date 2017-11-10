@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class TipoTransacao implements Serializable {
+public class AccountStatus implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
@@ -13,13 +13,9 @@ public class TipoTransacao implements Serializable {
     private Integer id;
 
     @Expose @SerializedName("descricao")
-    private String descricao;
+    private String description;
 
-    public TipoTransacao() {}
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+    public AccountStatus() {}
 
     public Integer getId() {
         return id;
@@ -29,12 +25,12 @@ public class TipoTransacao implements Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -42,25 +38,25 @@ public class TipoTransacao implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TipoTransacao that = (TipoTransacao) o;
+        AccountStatus that = (AccountStatus) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        return descricao != null ? descricao.equals(that.descricao) : that.descricao == null;
+        return description != null ? description.equals(that.description) : that.description == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "TipoTransacao{" +
+        return "AccountStatus{" +
                 "id=" + id +
-                ", descricao='" + descricao + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

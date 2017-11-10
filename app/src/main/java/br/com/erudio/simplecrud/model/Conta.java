@@ -24,10 +24,10 @@ public class Conta implements Serializable {
     private BigDecimal saldo;
 
     @Expose @SerializedName("tipoConta")
-    private TipoConta tipoConta;
+    private AccountType accountType;
 
     @Expose @SerializedName("statusConta")
-    private StatusConta statusConta;
+    private AccountStatus accountStatus;
 
     @Expose @SerializedName("contaMatriz")
     private Conta contaMatriz;
@@ -61,12 +61,12 @@ public class Conta implements Serializable {
         this.nome = nome;
     }
 
-    public TipoConta getTipoConta() {
-        return tipoConta;
+    public AccountType getTipoConta() {
+        return accountType;
     }
 
-    public void setTipoConta(TipoConta tipoConta) {
-        this.tipoConta = tipoConta;
+    public void setTipoConta(AccountType accountType) {
+        this.accountType = accountType;
     }
 
     public Conta getContaMatriz() {
@@ -93,12 +93,12 @@ public class Conta implements Serializable {
         this.person = person;
     }
     
-    public StatusConta getStatusConta() {
-        return statusConta;
+    public AccountStatus getAccountStatus() {
+        return accountStatus;
     }
 
-    public void setStatusConta(StatusConta statusConta) {
-        this.statusConta = statusConta;
+    public void setAccountStatus(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
     }
 
     @Override
@@ -113,9 +113,9 @@ public class Conta implements Serializable {
             return false;
         if (nome != null ? !nome.equals(conta.nome) : conta.nome != null) return false;
         if (saldo != null ? !saldo.equals(conta.saldo) : conta.saldo != null) return false;
-        if (tipoConta != null ? !tipoConta.equals(conta.tipoConta) : conta.tipoConta != null)
+        if (accountType != null ? !accountType.equals(conta.accountType) : conta.accountType != null)
             return false;
-        if (statusConta != null ? !statusConta.equals(conta.statusConta) : conta.statusConta != null)
+        if (accountStatus != null ? !accountStatus.equals(conta.accountStatus) : conta.accountStatus != null)
             return false;
         if (contaMatriz != null ? !contaMatriz.equals(conta.contaMatriz) : conta.contaMatriz != null)
             return false;
@@ -129,8 +129,8 @@ public class Conta implements Serializable {
         result = 31 * result + (dataCriacao != null ? dataCriacao.hashCode() : 0);
         result = 31 * result + (nome != null ? nome.hashCode() : 0);
         result = 31 * result + (saldo != null ? saldo.hashCode() : 0);
-        result = 31 * result + (tipoConta != null ? tipoConta.hashCode() : 0);
-        result = 31 * result + (statusConta != null ? statusConta.hashCode() : 0);
+        result = 31 * result + (accountType != null ? accountType.hashCode() : 0);
+        result = 31 * result + (accountStatus != null ? accountStatus.hashCode() : 0);
         result = 31 * result + (contaMatriz != null ? contaMatriz.hashCode() : 0);
         result = 31 * result + (person != null ? person.hashCode() : 0);
         return result;
@@ -143,8 +143,8 @@ public class Conta implements Serializable {
                 ", dataCriacao=" + dataCriacao +
                 ", nome='" + nome + '\'' +
                 ", saldo=" + saldo +
-                ", tipoConta=" + tipoConta +
-                ", statusConta=" + statusConta +
+                ", accountType=" + accountType +
+                ", accountStatus=" + accountStatus +
                 ", contaMatriz=" + contaMatriz +
                 ", person=" + person +
                 '}';

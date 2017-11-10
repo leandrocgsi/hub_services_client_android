@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class TipoConta implements Serializable {
+public class TransactionType implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
@@ -13,9 +13,13 @@ public class TipoConta implements Serializable {
     private Integer id;
 
     @Expose @SerializedName("descricao")
-    private String descricao;
+    private String description;
 
-    public TipoConta() {}
+    public TransactionType() {}
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Integer getId() {
         return id;
@@ -25,12 +29,12 @@ public class TipoConta implements Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -38,25 +42,25 @@ public class TipoConta implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        TipoConta tipoConta = (TipoConta) o;
+        TransactionType that = (TransactionType) o;
 
-        if (id != null ? !id.equals(tipoConta.id) : tipoConta.id != null) return false;
-        return descricao != null ? descricao.equals(tipoConta.descricao) : tipoConta.descricao == null;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return description != null ? description.equals(that.description) : that.description == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "TipoConta{" +
+        return "TransactionType{" +
                 "id=" + id +
-                ", descricao='" + descricao + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Transacao implements Serializable {
+public class Transaction implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,7 @@ public class Transacao implements Serializable {
     private Conta destino;
 
     @Expose @SerializedName("tipoTransacao")
-    private TipoTransacao tipoTransacao;
+    private TransactionType transactionType;
     
     @Expose @SerializedName("dataTransacao")
     private Date dataTransacao;
@@ -35,7 +35,7 @@ public class Transacao implements Serializable {
     @Expose @SerializedName("valor")
     private BigDecimal valor;
 
-    public Transacao() {}
+    public Transaction() {}
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -65,12 +65,12 @@ public class Transacao implements Serializable {
         this.destino = destino;
     }
 
-    public TipoTransacao getTipoTransacao() {
-        return tipoTransacao;
+    public TransactionType getTipoTransacao() {
+        return transactionType;
     }
 
-    public void setTipoTransacao(TipoTransacao tipoTransacao) {
-        this.tipoTransacao = tipoTransacao;
+    public void setTransactionType(TransactionType transactionType) {
+        this.transactionType = transactionType;
     }
 
     public Date getDataTransacao() {
@@ -110,14 +110,14 @@ public class Transacao implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Transacao transacao = (Transacao) o;
+        Transaction transacao = (Transaction) o;
 
         if (id != null ? !id.equals(transacao.id) : transacao.id != null) return false;
         if (origem != null ? !origem.equals(transacao.origem) : transacao.origem != null)
             return false;
         if (destino != null ? !destino.equals(transacao.destino) : transacao.destino != null)
             return false;
-        if (tipoTransacao != null ? !tipoTransacao.equals(transacao.tipoTransacao) : transacao.tipoTransacao != null)
+        if (transactionType != null ? !transactionType.equals(transacao.transactionType) : transacao.transactionType != null)
             return false;
         if (dataTransacao != null ? !dataTransacao.equals(transacao.dataTransacao) : transacao.dataTransacao != null)
             return false;
@@ -134,7 +134,7 @@ public class Transacao implements Serializable {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (origem != null ? origem.hashCode() : 0);
         result = 31 * result + (destino != null ? destino.hashCode() : 0);
-        result = 31 * result + (tipoTransacao != null ? tipoTransacao.hashCode() : 0);
+        result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
         result = 31 * result + (dataTransacao != null ? dataTransacao.hashCode() : 0);
         result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
         result = 31 * result + (estornada != null ? estornada.hashCode() : 0);
@@ -148,7 +148,7 @@ public class Transacao implements Serializable {
                 "id=" + id +
                 ", origem=" + origem +
                 ", destino=" + destino +
-                ", tipoTransacao=" + tipoTransacao +
+                ", transactionType=" + transactionType +
                 ", dataTransacao=" + dataTransacao +
                 ", codigo='" + codigo + '\'' +
                 ", estornada=" + estornada +

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class StatusConta implements Serializable {
+public class AccountType implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
@@ -13,9 +13,9 @@ public class StatusConta implements Serializable {
     private Integer id;
 
     @Expose @SerializedName("descricao")
-    private String descricao;
+    private String description;
 
-    public StatusConta() {}
+    public AccountType() {}
 
     public Integer getId() {
         return id;
@@ -25,12 +25,12 @@ public class StatusConta implements Serializable {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -38,25 +38,25 @@ public class StatusConta implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StatusConta that = (StatusConta) o;
+        AccountType accountType = (AccountType) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        return descricao != null ? descricao.equals(that.descricao) : that.descricao == null;
+        if (id != null ? !id.equals(accountType.id) : accountType.id != null) return false;
+        return description != null ? description.equals(accountType.description) : accountType.description == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (descricao != null ? descricao.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "StatusConta{" +
+        return "AccountType{" +
                 "id=" + id +
-                ", descricao='" + descricao + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
