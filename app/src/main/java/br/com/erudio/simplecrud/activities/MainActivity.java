@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         finish();
-                        Intent homepage = new Intent(MainActivity.this, FisicalPersonActivity.class);
+                        Intent homepage = new Intent(MainActivity.this, NaturalPersonActivity.class);
                         startActivity(homepage);
                     }
                 }, timeout);
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         finish();
-                        Intent homepage = new Intent(MainActivity.this, JuridicalPersonActivity.class);
+                        Intent homepage = new Intent(MainActivity.this, LegalPersonActivity.class);
                         startActivity(homepage);
                     }
                 }, timeout);

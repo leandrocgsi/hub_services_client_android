@@ -10,89 +10,88 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
-import br.com.erudio.simplecrud.model.NaturalPerson;
-import br.com.erudio.simplecrud.remote.NaturalPersonAPIService;
+import br.com.erudio.simplecrud.model.LegalPerson;
+import br.com.erudio.simplecrud.remote.LegalPersonAPIService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FisicalPersonActivity extends Activity implements View.OnClickListener {
+public class LegalPersonActivity extends Activity implements View.OnClickListener {
 
-    private static final String TAG = FisicalPersonActivity.class.getSimpleName();
+    private static final String TAG = LegalPersonActivity.class.getSimpleName();
     private TextView textViewResponse;
 
-    private EditText editTextName;
-    private EditText editTextCpf;
-    private EditText editTextBirthday;
+    private EditText editTextCompanyName;
+    private EditText editTextCnpj;
+    private EditText editTradeName;
 
     private Button buttonSubmit;
 
-    private NaturalPersonAPIService api;
+    private LegalPersonAPIService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fisical_person);
+        setContentView(R.layout.activity_legal_person);
 
-        editTextName = (EditText) findViewById(R.id.et_name);
-        editTextCpf = (EditText) findViewById(R.id.et_cpf);
-        editTextBirthday = (EditText) findViewById(R.id.et_birthday);
+        editTextCompanyName = (EditText) findViewById(R.id.et_razao_social);
+        editTextCnpj = (EditText) findViewById(R.id.et_cnpj);
+        editTradeName = (EditText) findViewById(R.id.et_fantasy_name);
 
         Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
-        api = ApiUtils.getNaturalPersonAPIService();
+        api = ApiUtils.getLegalPersonAPIService();
 
         buttonSubmit.setOnClickListener(this);
     }
 
     private void insertPerson(){
 
-        String name = editTextName.getText().toString().trim();
-        String cpf = editTextCpf.getText().toString().trim();
-        Date birthday = new Date();//editTextBirthday.getText().toString().trim();
+        String companyName = editTextCompanyName.getText().toString().trim();
+        String tradeName = editTradeName.getText().toString().trim();
+        String cnpj = editTextCnpj.getText().toString().trim();
 
-        NaturalPerson naturalPerson = new NaturalPerson();
-        naturalPerson.setNameTradeName(name);
-        naturalPerson.setCpfcnpj(cpf);
-        naturalPerson.setBirthday("1975-12-05");
+        LegalPerson legalPerson = new LegalPerson();
+        legalPerson.setNameTradeName(tradeName);
+        legalPerson.setCompanyName(companyName);
+        legalPerson.setCpfcnpj(cnpj);
 
-        api.savePerson(naturalPerson).enqueue(new Callback<NaturalPerson>() {
+        api.savePerson(legalPerson).enqueue(new Callback<LegalPerson>() {
 
             @Override
-            public void onResponse(Call<NaturalPerson> call, Response<NaturalPerson> response) {
+            public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "naturalPerson submitted to API." + response.body().toString());
+                    Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<NaturalPerson> call, Throwable t) {
+            public void onFailure(Call<LegalPerson> call, Throwable t) {
                 showErrorMessage();
-                Log.e(TAG, "Unable to submit naturalPerson to API.");
+                Log.e(TAG, "Unable to submit legalPerson to API.");
             }
         });
     }
 
-    /*private void getAllNaturalPersons() {
-        Call<List<NaturalPerson>> getAllNaturalPersonsCall = api.getPersons();
+    /*private void getAllLegalPersons() {
+        Call<List<LegalPerson>> getAllLegalPersonsCall = api.getPessoas();
 
-        getAllNaturalPersonsCall.enqueue(new Callback<List<NaturalPerson>>() {
+        getAllLegalPersonsCall.enqueue(new Callback<List<LegalPerson>>() {
             @Override
-            public void onResponse(Call<List<NaturalPerson>> call, Response<List<NaturalPerson>> response) {
-                displayNaturalPerson(response.body().get(0));
+            public void onResponse(Call<List<LegalPerson>> call, Response<List<LegalPerson>> response) {
+                displayLegalPerson(response.body().get(0));
             }
 
             @Override
-            public void onFailure(Call<List<NaturalPerson>> call, Throwable t) {
-                Log.e(TAG, "Error occured while fetching naturalPerson.");
+            public void onFailure(Call<List<LegalPerson>> call, Throwable t) {
+                Log.e(TAG, "Error occured while fetching legalPerson.");
             }
         });
     }*/
@@ -113,7 +112,7 @@ public class FisicalPersonActivity extends Activity implements View.OnClickListe
             @Override
             public void run() {
                 finish();
-                Intent homepage = new Intent(FisicalPersonActivity.this, MainActivity.class);
+                Intent homepage = new Intent(LegalPersonActivity.this, MainActivity.class);
                 startActivity(homepage);
             }
         }, timeout);

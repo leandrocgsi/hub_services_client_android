@@ -14,8 +14,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="br.com.erudio.simplecrud.activities.FisicalPersonActivity"></activity>
-        <activity android:name="br.com.erudio.simplecrud.activities.JuridicalPersonActivity"></activity>
+        <activity android:name="br.com.erudio.simplecrud.activities.NaturalPersonActivity"></activity>
+        <activity android:name="br.com.erudio.simplecrud.activities.LegalPersonActivity"></activity>
     </application>
 
 </manifest>
