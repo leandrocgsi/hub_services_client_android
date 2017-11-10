@@ -1,8 +1,8 @@
 package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
-import br.com.erudio.simplecrud.model.PessoaFisica;
-import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
+import br.com.erudio.simplecrud.model.PessoaJuridica;
+import br.com.erudio.simplecrud.remote.LegalPersonAPIService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,72 +27,72 @@ public class JuridicalPersonActivity extends Activity implements View.OnClickLis
     private static final String TAG = JuridicalPersonActivity.class.getSimpleName();
     private TextView textViewResponse;
 
-    private EditText editTextName;
-    private EditText editTextCpf;
-    private EditText editTextBirthday;
+    private EditText editTextCompanyName;
+    private EditText editTextCnpj;
+    private EditText editTradeName;
 
     private Button buttonSubmit;
 
-    private PessoaFisicaAPIService api;
+    private LegalPersonAPIService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fisical_person);
+        setContentView(R.layout.activity_juridical_person);
 
-        editTextName = (EditText) findViewById(R.id.et_name);
-        editTextCpf = (EditText) findViewById(R.id.et_cpf);
-        editTextBirthday = (EditText) findViewById(R.id.et_birthday);
+        editTextCompanyName = (EditText) findViewById(R.id.et_razao_social);
+        editTextCnpj = (EditText) findViewById(R.id.et_cnpj);
+        editTradeName = (EditText) findViewById(R.id.et_fantasy_name);
 
         Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
-        api = ApiUtils.getAPIService();
+        api = ApiUtils.getLegalPersonAPIService();
 
         buttonSubmit.setOnClickListener(this);
     }
 
     private void insertPerson(){
 
-        String name = editTextName.getText().toString().trim();
-        String cpf = editTextCpf.getText().toString().trim();
-        Date birthday = new Date();//editTextBirthday.getText().toString().trim();
+        String companyName = editTextCompanyName.getText().toString().trim();
+        String tradeName = editTradeName.getText().toString().trim();
+        String cnpj = editTextCnpj.getText().toString().trim();
 
-        PessoaFisica pessoaFisica = new PessoaFisica();
-        pessoaFisica.setNomeNomeFantasia(name);
-        pessoaFisica.setCpfcnpj(cpf);
-        pessoaFisica.setDataDeNascimento("1975-12-05");
+        PessoaJuridica pessoaJuridica = new PessoaJuridica();
+        pessoaJuridica.setNomeNomeFantasia(tradeName);
+        pessoaJuridica.setNomeRazaoSocial(companyName);
+        pessoaJuridica.setCpfcnpj(cnpj);
 
-        api.savePerson(pessoaFisica).enqueue(new Callback<PessoaFisica>() {
+        api.savePerson(pessoaJuridica).enqueue(new Callback<PessoaJuridica>() {
 
             @Override
-            public void onResponse(Call<PessoaFisica> call, Response<PessoaFisica> response) {
+            public void onResponse(Call<PessoaJuridica> call, Response<PessoaJuridica> response) {
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "pessoaFisica submitted to API." + response.body().toString());
+                    Log.i(TAG, "pessoaJuridica submitted to API." + response.body().toString());
                 }
             }
 
             @Override
-            public void onFailure(Call<PessoaFisica> call, Throwable t) {
+            public void onFailure(Call<PessoaJuridica> call, Throwable t) {
                 showErrorMessage();
-                Log.e(TAG, "Unable to submit pessoaFisica to API.");
+                Log.e(TAG, "Unable to submit pessoaJuridica to API.");
             }
         });
     }
 
-    /*private void getAllPessoaFisicas() {
-        Call<List<PessoaFisica>> getAllPessoaFisicasCall = api.getPessoas();
+    /*private void getAllPessoaJuridicas() {
+        Call<List<PessoaJuridica>> getAllPessoaJuridicasCall = api.getPessoas();
 
-        getAllPessoaFisicasCall.enqueue(new Callback<List<PessoaFisica>>() {
+        getAllPessoaJuridicasCall.enqueue(new Callback<List<PessoaJuridica>>() {
             @Override
-            public void onResponse(Call<List<PessoaFisica>> call, Response<List<PessoaFisica>> response) {
-                displayPessoaFisica(response.body().get(0));
+            public void onResponse(Call<List<PessoaJuridica>> call, Response<List<PessoaJuridica>> response) {
+                displayPessoaJuridica(response.body().get(0));
             }
 
             @Override
-            public void onFailure(Call<List<PessoaFisica>> call, Throwable t) {
-                Log.e(TAG, "Error occured while fetching pessoaFisica.");
+            public void onFailure(Call<List<PessoaJuridica>> call, Throwable t) {
+                Log.e(TAG, "Error occured while fetching pessoaJuridica.");
             }
         });
     }*/
@@ -99,6 +101,22 @@ public class JuridicalPersonActivity extends Activity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         insertPerson();
+    }
+
+    public void returnToMain(View view) {
+        //setContentView(R.layout.activity_main);
+
+        int timeout = 50;
+        Timer t2 = new Timer();
+        t2.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                finish();
+                Intent homepage = new Intent(JuridicalPersonActivity.this, MainActivity.class);
+                startActivity(homepage);
+            }
+        }, timeout);
     }
 
     public void showResponse(String response) {

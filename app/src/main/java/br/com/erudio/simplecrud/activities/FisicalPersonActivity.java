@@ -3,7 +3,6 @@ package br.com.erudio.simplecrud.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +17,7 @@ import java.util.TimerTask;
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.PessoaFisica;
-import br.com.erudio.simplecrud.remote.PessoaFisicaAPIService;
+import br.com.erudio.simplecrud.remote.NaturalPersonAPIService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,7 +33,7 @@ public class FisicalPersonActivity extends Activity implements View.OnClickListe
 
     private Button buttonSubmit;
 
-    private PessoaFisicaAPIService api;
+    private NaturalPersonAPIService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class FisicalPersonActivity extends Activity implements View.OnClickListe
         Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
-        api = ApiUtils.getAPIService();
+        api = ApiUtils.getNaturalPersonAPIService();
 
         buttonSubmit.setOnClickListener(this);
     }
