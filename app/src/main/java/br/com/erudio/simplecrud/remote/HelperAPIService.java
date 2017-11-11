@@ -2,23 +2,23 @@ package br.com.erudio.simplecrud.remote;
 
 import java.util.List;
 
+import br.com.erudio.simplecrud.model.AccountStatus;
+import br.com.erudio.simplecrud.model.AccountType;
 import br.com.erudio.simplecrud.model.Person;
-import br.com.erudio.simplecrud.model.StatusConta;
-import br.com.erudio.simplecrud.model.TipoConta;
-import br.com.erudio.simplecrud.model.TipoTransacao;
+import br.com.erudio.simplecrud.model.TransactionType;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface HelperAPIService {
 
     @GET("/api/helper/tiposConta")
-    Call<List<TipoConta>> listAllTipoContas();
+    Call<List<AccountType>> listAllAccountTypes();
 
     @GET("/api/helper/tiposTransacao")
-    Call<List<TipoTransacao>> listAllTiposTransacao();
+    Call<List<TransactionType>> listAllTransactionTypes();
 
     @GET("/api/helper/statusConta")
-    Call<List<StatusConta>> listAllStatusContas();
+    Call<List<AccountStatus>> listAllAccountStatus();
 
     @GET("/api/helper/pessoas")
     Call<List<Person>> listAllPersons();

@@ -2,7 +2,7 @@ package br.com.erudio.simplecrud.remote;
 
 import java.util.List;
 
-import br.com.erudio.simplecrud.model.Transacao;
+import br.com.erudio.simplecrud.model.Transaction;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
@@ -14,16 +14,16 @@ import retrofit2.http.Path;
 public interface TransacaoAPIService {
 
     @GET("/api/transacao/")
-    Call<List<Transacao>> getTransacoes();
+    Call<List<Transaction>> getTansactions();
 
     @GET("/api/transacao/{id}")
-    Call<Transacao> getTransacao(@Path("id") long id);
+    Call<Transaction> getTransaction(@Path("id") long id);
 
     @POST("/api/transacao/")
-    Call<Transacao> createTransacao(@Body Transacao transacao);
+    Call<Transaction> createTransaction(@Body Transaction transaction);
 
-    @PUT("/api/transacao/estornoTransacao/{id}")
+    @PUT("/api/transacao/estornoTransaction/{id}")
     @FormUrlEncoded
-    Call<Transacao> updateTransacao(@Path("id") long id);
+    Call<Transaction> updateTransaction(@Path("id") long id);
 
 }
