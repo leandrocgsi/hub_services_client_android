@@ -1,4 +1,4 @@
-package br.com.erudio.simplecrud.repository;
+package br.com.erudio.simplecrud;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -29,7 +29,6 @@ import java.util.List;
 
 import br.com.erudio.simplecrud.config.ApiConstants;
 import br.com.erudio.simplecrud.model.Hero;
-import br.com.erudio.simplecrud.repository.RequestHandler;
 
 import static android.view.View.GONE;
 
