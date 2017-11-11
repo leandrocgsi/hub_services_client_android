@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/pessoa_fisica_menu"
+        android:title="@string/title_pessoa_fisica"/>
+
+    <item android:id="@+id/pessoa_juridca_menu"
+        android:title="@string/title_pessoa_juridica"/>
+
+    <item android:id="@+id/contas"
+        android:title="@string/title_contas"/>
+
+    <item android:id="@+id/transacao"
+        android:title="@string/title_transacao"/>
+
+    <item android:id="@+id/transactions"
+        android:title="@string/title_list_transactions"/>
+
+    <item android:id="@+id/companies"
+        android:title="@string/title_list_companies"/>
+
+    <item android:id="@+id/accounts"
+        android:title="@string/title_list_accounts"/>
+
+    <item android:id="@+id/persons"
+        android:title="@string/title_list_persons"/>
+
+</menu>
