@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -81,13 +82,13 @@ public class NaturalPersonActivity extends Activity implements View.OnClickListe
         });
     }
 
-    /*private void getAllNaturalPersons() {
-        Call<List<NaturalPerson>> getAllNaturalPersonsCall = api.getPersons();
+    private void getAllNaturalPersons() {
+        Call<List<NaturalPerson>> call = api.getPersons();
 
-        getAllNaturalPersonsCall.enqueue(new Callback<List<NaturalPerson>>() {
+        call.enqueue(new Callback<List<NaturalPerson>>() {
             @Override
             public void onResponse(Call<List<NaturalPerson>> call, Response<List<NaturalPerson>> response) {
-                displayNaturalPerson(response.body().get(0));
+                List<NaturalPerson> persons = response.body();
             }
 
             @Override
@@ -95,7 +96,7 @@ public class NaturalPersonActivity extends Activity implements View.OnClickListe
                 Log.e(TAG, "Error occured while fetching naturalPerson.");
             }
         });
-    }*/
+    }
 
 
     @Override
