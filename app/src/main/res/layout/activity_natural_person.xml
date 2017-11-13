@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/title_pessoa_fisica"/>
+        android:text="@string/title_natural_person"/>
     <EditText
         android:id="@+id/et_name"
         android:layout_marginTop="18dp"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:background="@color/colorAction"
-        android:text="@string/action_submit"
+        android:text="@string/action_save"
         android:textColor="@android:color/white" />
 
 

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/pessoa_fisica_menu"
-        android:title="@string/title_pessoa_fisica"/>
+    <item android:id="@+id/natural_person_menu"
+        android:title="@string/title_natural_person"/>
 
-    <item android:id="@+id/pessoa_juridca_menu"
-        android:title="@string/title_pessoa_juridica"/>
+    <item android:id="@+id/legal_person_menu"
+        android:title="@string/title_legal_person"/>
 
     <item android:id="@+id/account"
         android:title="@string/title_accounts"/>
 
     <item android:id="@+id/transacao"
-        android:title="@string/title_transacao"/>
+        android:title="@string/title_transactions"/>
 
     <item android:id="@+id/transactions"
         android:title="@string/title_list_transactions"/>

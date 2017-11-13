@@ -39,9 +39,9 @@ public class LegalPersonActivity extends Activity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legal_person);
 
-        editTextCompanyName = (EditText) findViewById(R.id.et_razao_social);
+        editTextCompanyName = (EditText) findViewById(R.id.et_company_name);
         editTextCnpj = (EditText) findViewById(R.id.et_cnpj);
-        editTradeName = (EditText) findViewById(R.id.et_fantasy_name);
+        editTradeName = (EditText) findViewById(R.id.et_trading_name);
 
         Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);

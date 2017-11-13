@@ -17,19 +17,19 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:text="@string/title_pessoa_juridica"/>
+        android:text="@string/title_legal_person"/>
 
     <EditText
-        android:id="@+id/et_fantasy_name"
+        android:id="@+id/et_trading_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_fantasy_name"/>
+        android:hint="@string/hint_trading_name"/>
 
     <EditText
-        android:id="@+id/et_razao_social"
+        android:id="@+id/et_company_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_razao_social"/>
+        android:hint="@string/hint_company_name"/>
 
     <EditText
         android:id="@+id/et_cnpj"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:background="@color/colorAction"
-        android:text="@string/action_submit"
+        android:text="@string/action_save"
         android:textColor="@android:color/white" />
 
     <Button

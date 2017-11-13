@@ -1,26 +1,26 @@
 <resources>
-    <string name="app_name">Contas</string>
+    <string name="app_name">Accounts</string>
 
-    <string name="hint_name">Nome</string>
-    <string name="hint_fantasy_name">Nome Fantasia</string>
-    <string name="hint_razao_social">Razão Social</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_trading_name">Trading Name</string>
+    <string name="hint_company_name">Company Name</string>
     <string name="hint_cpf">CPF</string>
     <string name="hint_cnpj">CNPJ</string>
-    <string name="hint_birthday">Data de nascimento</string>
-    <string name="action_submit">Salvar</string>
-    <string name="action_cancel">Cancelar</string>
+    <string name="hint_birthday">Birthday</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
     <string name="action_menu">Menu</string>
 
-    <string name="title_pessoa_fisica">Pessoa Física</string>
-    <string name="title_pessoa_juridica">Pessoa Jurídica</string>
-    <string name="title_accounts">Contas</string>
-    <string name="title_transacao">Transações</string>
+    <string name="title_natural_person">Natural Person</string>
+    <string name="title_legal_person">Legal Person</string>
+    <string name="title_accounts">Accounts</string>
+    <string name="title_transactions">Transactions</string>
 
     <string name="title_list_persons">List Persons</string>
-    <string name="title_list_companies">List Company</string>
+    <string name="title_list_companies">List Companies</string>
     <string name="title_list_accounts">List Accounts</string>
     <string name="title_list_transactions">List Transactions</string>
 
-    <string name="mssg_error_saving_fisical_person">Erro ao salvar pessoa física</string>
-    <string name="mssg_error_saving_juridical_person">Erro ao salvar a pessoa jurídica</string>
+    <string name="mssg_error_saving_fisical_person">Error saving Natural Person</string>
+    <string name="mssg_error_saving_juridical_person">Error saving Legal Person</string>
 </resources>

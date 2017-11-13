@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         int timeout = 50; // make the activity visible for 4 seconds
 
         switch (item.getItemId()) {
-            case R.id.pessoa_fisica_menu:
+            case R.id.natural_person_menu:
                 Timer t1 = new Timer();
                 t1.schedule(new TimerTask() {
 
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
                     }
                 }, timeout);
                 return true;
-            case R.id.pessoa_juridca_menu:
+            case R.id.legal_person_menu:
                 Timer t2 = new Timer();
                 t2.schedule(new TimerTask() {
 
