@@ -15,25 +15,25 @@ public class Transaction implements Serializable {
     private Long id;
 
     @Expose @SerializedName("origem")
-    private Conta origem;
+    private Account origin;
 
     @Expose @SerializedName("destino")
-    private Conta destino;
+    private Account destiny;
 
     @Expose @SerializedName("tipoTransacao")
     private TransactionType transactionType;
     
     @Expose @SerializedName("dataTransacao")
-    private Date dataTransacao;
+    private Date transactionDate;
 
     @Expose @SerializedName("codigo")
-    private String codigo;
+    private String code;
     
     @Expose @SerializedName("estornada")
-    private Boolean estornada;
+    private Boolean reversed;
     
     @Expose @SerializedName("valor")
-    private BigDecimal valor;
+    private BigDecimal value;
 
     public Transaction() {}
 
@@ -49,20 +49,20 @@ public class Transaction implements Serializable {
         this.id = id;
     }
 
-    public Conta getOrigem() {
-        return origem;
+    public Account getOrigin() {
+        return origin;
     }
 
-    public void setOrigem(Conta origem) {
-        this.origem = origem;
+    public void setOrigin(Account origin) {
+        this.origin = origin;
     }
 
-    public Conta getDestino() {
-        return destino;
+    public Account getDestiny() {
+        return destiny;
     }
 
-    public void setDestino(Conta destino) {
-        this.destino = destino;
+    public void setDestiny(Account destiny) {
+        this.destiny = destiny;
     }
 
     public TransactionType getTipoTransacao() {
@@ -73,36 +73,36 @@ public class Transaction implements Serializable {
         this.transactionType = transactionType;
     }
 
-    public Date getDataTransacao() {
-        return dataTransacao;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setDataTransacao(Date dataTransacao) {
-        this.dataTransacao = dataTransacao;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public String getCode() {
+        return code;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Boolean getEstornada() {
-        return estornada;
+    public Boolean getReversed() {
+        return reversed;
     }
 
-    public void setEstornada(Boolean estornada) {
-        this.estornada = estornada;
+    public void setReversed(Boolean reversed) {
+        this.reversed = reversed;
     }
 
-    public BigDecimal getValor() {
-        return valor;
+    public BigDecimal getValue() {
+        return value;
     }
 
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
+    public void setValue(BigDecimal value) {
+        this.value = value;
     }
 
     @Override
@@ -113,32 +113,32 @@ public class Transaction implements Serializable {
         Transaction transacao = (Transaction) o;
 
         if (id != null ? !id.equals(transacao.id) : transacao.id != null) return false;
-        if (origem != null ? !origem.equals(transacao.origem) : transacao.origem != null)
+        if (origin != null ? !origin.equals(transacao.origin) : transacao.origin != null)
             return false;
-        if (destino != null ? !destino.equals(transacao.destino) : transacao.destino != null)
+        if (destiny != null ? !destiny.equals(transacao.destiny) : transacao.destiny != null)
             return false;
         if (transactionType != null ? !transactionType.equals(transacao.transactionType) : transacao.transactionType != null)
             return false;
-        if (dataTransacao != null ? !dataTransacao.equals(transacao.dataTransacao) : transacao.dataTransacao != null)
+        if (transactionDate != null ? !transactionDate.equals(transacao.transactionDate) : transacao.transactionDate != null)
             return false;
-        if (codigo != null ? !codigo.equals(transacao.codigo) : transacao.codigo != null)
+        if (code != null ? !code.equals(transacao.code) : transacao.code != null)
             return false;
-        if (estornada != null ? !estornada.equals(transacao.estornada) : transacao.estornada != null)
+        if (reversed != null ? !reversed.equals(transacao.reversed) : transacao.reversed != null)
             return false;
-        return valor != null ? valor.equals(transacao.valor) : transacao.valor == null;
+        return value != null ? value.equals(transacao.value) : transacao.value == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (origem != null ? origem.hashCode() : 0);
-        result = 31 * result + (destino != null ? destino.hashCode() : 0);
+        result = 31 * result + (origin != null ? origin.hashCode() : 0);
+        result = 31 * result + (destiny != null ? destiny.hashCode() : 0);
         result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
-        result = 31 * result + (dataTransacao != null ? dataTransacao.hashCode() : 0);
-        result = 31 * result + (codigo != null ? codigo.hashCode() : 0);
-        result = 31 * result + (estornada != null ? estornada.hashCode() : 0);
-        result = 31 * result + (valor != null ? valor.hashCode() : 0);
+        result = 31 * result + (transactionDate != null ? transactionDate.hashCode() : 0);
+        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + (reversed != null ? reversed.hashCode() : 0);
+        result = 31 * result + (value != null ? value.hashCode() : 0);
         return result;
     }
 
@@ -146,13 +146,13 @@ public class Transaction implements Serializable {
     public String toString() {
         return "Transacao{" +
                 "id=" + id +
-                ", origem=" + origem +
-                ", destino=" + destino +
+                ", origin=" + origin +
+                ", destiny=" + destiny +
                 ", transactionType=" + transactionType +
-                ", dataTransacao=" + dataTransacao +
-                ", codigo='" + codigo + '\'' +
-                ", estornada=" + estornada +
-                ", valor=" + valor +
+                ", transactionDate=" + transactionDate +
+                ", code='" + code + '\'' +
+                ", reversed=" + reversed +
+                ", value=" + value +
                 '}';
     }
 }

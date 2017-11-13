@@ -2,7 +2,7 @@ package br.com.erudio.simplecrud.remote;
 
 import java.util.List;
 
-import br.com.erudio.simplecrud.model.Conta;
+import br.com.erudio.simplecrud.model.Account;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -15,19 +15,19 @@ import retrofit2.http.Path;
 public interface ContaAPIService {
 
     @GET("/api/conta/")
-    Call<List<Conta>> getContas();
+    Call<List<Account>> getContas();
 
     @GET("/api/conta/{id}")
-    Call<Conta> getConta(@Path("id") long id);
+    Call<Account> getConta(@Path("id") long id);
 
-    @POST("/api/conta/")
-    Call<Conta> createConta(@Body Conta conta);
+    @POST("/api/account/")
+    Call<Account> createConta(@Body Account account);
 
-    @PUT("/api/conta/{id}")
+    @PUT("/api/account/{id}")
     @FormUrlEncoded
-    Call<Conta> updateConta(@Path("id") long id, @Body Conta conta);
+    Call<Account> updateConta(@Path("id") long id, @Body Account account);
 
     @DELETE("/api/conta/{id}")
-    Call<Conta> deletePost(@Path("id") long id);
+    Call<Account> deletePost(@Path("id") long id);
 
 }
