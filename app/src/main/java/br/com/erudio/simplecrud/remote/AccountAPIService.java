@@ -12,20 +12,20 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface ContaAPIService {
+public interface AccountAPIService {
 
     @GET("/api/conta/")
-    Call<List<Account>> getContas();
+    Call<List<Account>> getAccounts();
 
     @GET("/api/conta/{id}")
-    Call<Account> getConta(@Path("id") long id);
+    Call<Account> getAccount(@Path("id") long id);
 
     @POST("/api/account/")
-    Call<Account> createConta(@Body Account account);
+    Call<Account> createAccount(@Body Account account);
 
     @PUT("/api/account/{id}")
     @FormUrlEncoded
-    Call<Account> updateConta(@Path("id") long id, @Body Account account);
+    Call<Account> updateAccount(@Path("id") long id, @Body Account account);
 
     @DELETE("/api/conta/{id}")
     Call<Account> deletePost(@Path("id") long id);

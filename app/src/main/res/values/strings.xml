@@ -13,7 +13,7 @@
 
     <string name="title_pessoa_fisica">Pessoa Física</string>
     <string name="title_pessoa_juridica">Pessoa Jurídica</string>
-    <string name="title_contas">Contas</string>
+    <string name="title_accounts">Contas</string>
     <string name="title_transacao">Transações</string>
 
     <string name="title_list_persons">List Persons</string>
