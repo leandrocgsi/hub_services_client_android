@@ -55,6 +55,18 @@ public class MainActivity extends Activity {
                     }
                 }, timeout);
                 return true;
+            case R.id.persons:
+                Timer t3 = new Timer();
+                t3.schedule(new TimerTask() {
+
+                    @Override
+                    public void run() {
+                        finish();
+                        Intent homepage = new Intent(MainActivity.this, LegalPersonActivity.class);
+                        startActivity(homepage);
+                    }
+                }, timeout);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
