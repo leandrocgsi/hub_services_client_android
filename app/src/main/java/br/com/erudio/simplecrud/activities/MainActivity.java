@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void run() {
                         finish();
-                        Intent homepage = new Intent(MainActivity.this, LegalPersonActivity.class);
+                        Intent homepage = new Intent(MainActivity.this, ListNaturalPersonActivity.class);
                         startActivity(homepage);
                     }
                 }, timeout);
