@@ -1,6 +1,7 @@
 package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,15 +21,15 @@ import retrofit2.Response;
 
 public class ListNaturalPersonActivity extends Activity {
 
-    private static final String TAG = NaturalPersonActivity.class.getSimpleName();
+    private static final String TAG = ListNaturalPersonActivity.class.getSimpleName();
 
-    ListView listView;
+    ListView listView = null;
     private NaturalPersonAPIService api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_natural_person);
         api = ApiUtils.getNaturalPersonAPIService();
         listView = (ListView) findViewById(R.id.listViewPersons);
 
@@ -44,15 +45,16 @@ public class ListNaturalPersonActivity extends Activity {
                 List<NaturalPerson> persons = response.body();
 
                 //Creating an String array for the ListView
-                String[] heroes = new String[persons.size()];
+                String[] personsArray = new String[persons.size()];
 
                 //looping through all the heroes and inserting the names inside the string array
                 for (int i = 0; i < persons.size(); i++) {
-                    heroes[i] = persons.get(i).getNameTradeName();
+                    personsArray[i] = persons.get(i).getNameTradeName();
                 }
 
                 //displaying the string array into listview
-                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, heroes));
+                Context context = getApplicationContext();
+                listView.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, personsArray));
             }
 
             @Override
