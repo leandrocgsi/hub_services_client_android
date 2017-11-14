@@ -17,6 +17,7 @@
         <activity android:name="br.com.erudio.simplecrud.activities.NaturalPersonActivity"></activity>
         <activity android:name="br.com.erudio.simplecrud.activities.LegalPersonActivity"></activity>
         <activity android:name="br.com.erudio.simplecrud.activities.ListNaturalPersonActivity"></activity>
+        <activity android:name="br.com.erudio.simplecrud.activities.ListLegalPersonActivity"></activity>
     </application>
 
 </manifest>
