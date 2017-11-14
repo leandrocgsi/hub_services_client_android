@@ -36,7 +36,7 @@ public class ListNaturalPersonActivity extends Activity {
         getAllNaturalPersons();
     }
 
-    private void editPerson() {
+    public void editPerson() {
 
     }
 
