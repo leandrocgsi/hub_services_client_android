@@ -64,9 +64,9 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
                 public void onClick(View v) {
                     Intent goInput = new Intent(ctx,LegalPersonActivity.class);
                     goInput.putExtra("id", dm.getId());
-                    goInput.putExtra("companyName", dm.getCompanyName());
-                    goInput.putExtra("tradeName", dm.getNameTradeName());
-                    goInput.putExtra("cnpj", dm.getCpfcnpj());
+                    goInput.putExtra("et_company_name", dm.getCompanyName());
+                    goInput.putExtra("et_trading_name", dm.getNameTradeName());
+                    //goInput.putExtra("et_cnpj", dm.getCpfcnpj());
 
                     ctx.startActivity(goInput);
                 }

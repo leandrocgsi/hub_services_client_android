@@ -46,6 +46,18 @@ public class LegalPersonActivity extends Activity implements View.OnClickListene
         Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
+        Intent data = getIntent();
+        final String iddata = data.getStringExtra("id");
+        if(iddata != null) {
+            /*btnsave.setVisibility(View.GONE);
+            btnTampildata.setVisibility(View.GONE);
+            btnupdate.setVisibility(View.VISIBLE);
+            btndelete.setVisibility(View.VISIBLE);*/
+            editTextCompanyName.setText(data.getStringExtra("et_company_name"));
+            editTradeName.setText(data.getStringExtra("et_trading_name"));
+            editTextCnpj.setText(data.getStringExtra("et_cnpj"));
+        }
+
         api = ApiUtils.getLegalPersonAPIService();
 
         buttonSubmit.setOnClickListener(this);

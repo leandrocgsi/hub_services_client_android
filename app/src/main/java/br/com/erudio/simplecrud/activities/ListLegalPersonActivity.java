@@ -14,9 +14,8 @@ import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.adapter.AdapterData;
 import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.LegalPerson;
-
-import br.com.erudio.simplecrud.model.NaturalPerson;
 import br.com.erudio.simplecrud.remote.LegalPersonAPIService;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
