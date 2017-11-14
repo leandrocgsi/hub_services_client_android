@@ -36,6 +36,10 @@ public class ListNaturalPersonActivity extends Activity {
         getAllNaturalPersons();
     }
 
+    private void editPerson() {
+
+    }
+
     private void getAllNaturalPersons() {
         Call<List<NaturalPerson>> call = api.getPersons();
 
@@ -44,17 +48,13 @@ public class ListNaturalPersonActivity extends Activity {
             public void onResponse(Call<List<NaturalPerson>> call, Response<List<NaturalPerson>> response) {
                 List<NaturalPerson> persons = response.body();
 
-                //Creating an String array for the ListView
                 String[] personsArray = new String[persons.size()];
 
-                //looping through all the heroes and inserting the names inside the string array
                 for (int i = 0; i < persons.size(); i++) {
                     personsArray[i] = persons.get(i).getNameTradeName();
                 }
 
-                //displaying the string array into listview
-                Context context = getApplicationContext();
-                listView.setAdapter(new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, personsArray));
+                listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, personsArray));
             }
 
             @Override
