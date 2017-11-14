@@ -55,9 +55,21 @@ public class MainActivity extends Activity {
                     }
                 }, timeout);
                 return true;
-            case R.id.persons:
+            case R.id.companies:
                 Timer t3 = new Timer();
                 t3.schedule(new TimerTask() {
+
+                    @Override
+                    public void run() {
+                        finish();
+                        Intent homepage = new Intent(MainActivity.this, ListLegalPersonActivity.class);
+                        startActivity(homepage);
+                    }
+                }, timeout);
+                return true;
+            case R.id.persons:
+                Timer t4 = new Timer();
+                t4.schedule(new TimerTask() {
 
                     @Override
                     public void run() {

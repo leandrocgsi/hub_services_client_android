@@ -1,8 +1,8 @@
 package br.com.erudio.simplecrud.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListLegalPersonActivity extends AppCompatActivity {
+public class ListLegalPersonActivity extends Activity {
 
     private static final String TAG = ListLegalPersonActivity.class.getSimpleName();
 
