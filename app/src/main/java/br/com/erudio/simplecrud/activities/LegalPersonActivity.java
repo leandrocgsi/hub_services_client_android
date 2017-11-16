@@ -1,6 +1,5 @@
 package br.com.erudio.simplecrud.activities;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
