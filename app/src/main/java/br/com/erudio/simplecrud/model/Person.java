@@ -10,13 +10,13 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Expose @SerializedName("id")
-    private Long id;
+    public Long id;
 
     @Expose @SerializedName("cpfcnpj")
-    private String cpfcnpj;
+    public String cpfcnpj;
 
     @Expose @SerializedName("nomeNomeFantasia")
-    private String nameTradeName;
+    public String nameTradeName;
 
     public Person() {}
 

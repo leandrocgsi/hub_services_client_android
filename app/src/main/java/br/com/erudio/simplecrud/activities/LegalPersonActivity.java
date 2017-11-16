@@ -28,8 +28,6 @@ public class LegalPersonActivity extends AppCompatActivity {
     private EditText editTextCnpj;
     private EditText editTradeName;
 
-    private LegalPerson legalPerson;
-
     private LegalPersonAPIService api;
 
     ProgressDialog pd;
@@ -65,11 +63,19 @@ public class LegalPersonActivity extends AppCompatActivity {
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pd.setMessage("send data ... ");
+                pd.setCancelable(false);
+                pd.show();
 
-                api.updatePerson(legalPerson.getId(), legalPerson).enqueue(new Callback<LegalPerson>() {
+                String companyName = editTextCompanyName.getText().toString().trim();
+                String tradeName = editTradeName.getText().toString().trim();
+                String cnpj = editTextCnpj.getText().toString().trim();
 
+                Call<LegalPerson> call = api.updatePerson(Long.valueOf(iddata), new LegalPerson(Long.valueOf(iddata), companyName, tradeName, cnpj));
+                call.enqueue(new Callback<LegalPerson>() {
                     @Override
                     public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
+                        pd.hide();
                         if(response.isSuccessful()) {
                             showResponse(response.body().toString());
                             Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
@@ -78,6 +84,7 @@ public class LegalPersonActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<LegalPerson> call, Throwable t) {
+                        pd.hide();
                         showErrorMessage();
                         Log.e(TAG, "Unable to submit legalPerson to API.");
                     }
@@ -96,34 +103,22 @@ public class LegalPersonActivity extends AppCompatActivity {
                 String tradeName = editTradeName.getText().toString().trim();
                 String cnpj = editTextCnpj.getText().toString().trim();
 
-                legalPerson = new LegalPerson();
-                legalPerson.setNameTradeName(tradeName);
-                legalPerson.setCompanyName(companyName);
-                legalPerson.setCpfcnpj(cnpj);
-
-                buttonSave.setOnClickListener(new View.OnClickListener() {
+                Call<LegalPerson> call = api.savePerson(new LegalPerson(Long.valueOf(iddata), companyName, tradeName, cnpj));
+                call.enqueue(new Callback<LegalPerson>() {
                     @Override
-                    public void onClick(View v) {
-                        pd.setMessage("send data ... ");
-                        pd.setCancelable(false);
-                        pd.show();
+                    public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
+                        pd.hide();
+                        if(response.isSuccessful()) {
+                            showResponse(response.body().toString());
+                            Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
+                        }
+                    }
 
-                        api.savePerson(legalPerson).enqueue(new Callback<LegalPerson>() {
-
-                            @Override
-                            public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
-                                if(response.isSuccessful()) {
-                                    showResponse(response.body().toString());
-                                    Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<LegalPerson> call, Throwable t) {
-                                showErrorMessage();
-                                Log.e(TAG, "Unable to submit legalPerson to API.");
-                            }
-                        });
+                    @Override
+                    public void onFailure(Call<LegalPerson> call, Throwable t) {
+                        pd.hide();
+                        showErrorMessage();
+                        Log.e(TAG, "Unable to submit legalPerson to API.");
                     }
                 });
             }
