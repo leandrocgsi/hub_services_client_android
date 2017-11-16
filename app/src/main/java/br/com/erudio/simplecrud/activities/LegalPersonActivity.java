@@ -62,29 +62,6 @@ public class LegalPersonActivity extends AppCompatActivity {
 
         pd = new ProgressDialog(this);
 
-        /*buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pd.setMessage("Loading Hapus ...");
-                pd.setCancelable(false);
-                pd.show();
-
-                Call<LegalPerson> del  = api.deletePerson(Long.valueOf(iddata));
-                del.enqueue(new Callback<LegalPerson>() {
-                    @Override
-                    public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
-                        //TODO
-                    }
-
-                    @Override
-                    public void onFailure(Call<LegalPerson> call, Throwable t) {
-                        pd.hide();
-                        Log.d("Retro", "onFailure");
-                    }
-                });
-            }
-        });*/
-
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
