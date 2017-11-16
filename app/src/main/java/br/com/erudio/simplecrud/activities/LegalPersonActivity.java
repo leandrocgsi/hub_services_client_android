@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import br.com.erudio.simplecrud.R;
 import br.com.erudio.simplecrud.config.ApiUtils;
 import br.com.erudio.simplecrud.model.LegalPerson;
@@ -125,6 +128,21 @@ public class LegalPersonActivity extends AppCompatActivity {
         });
     }
 
+    public void returnToMain(View view) {
+        //setContentView(R.layout.activity_main);
+
+        int timeout = 50;
+        Timer t2 = new Timer();
+        t2.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+                finish();
+                Intent homepage = new Intent(LegalPersonActivity.this, MainActivity.class);
+                startActivity(homepage);
+            }
+        }, timeout);
+    }
     public void showResponse(String response) {
         if(textViewResponse.getVisibility() == View.GONE) {
             textViewResponse.setVisibility(View.VISIBLE);
