@@ -66,6 +66,10 @@ public class LegalPersonActivity extends Activity implements View.OnClickListene
         Intent data = getIntent();
         final String iddata = data.getStringExtra("id");
         if(iddata == null) {
+
+            buttonSave.setVisibility(View.VISIBLE);
+            buttonUpdate.setVisibility(View.GONE);
+
             buttonSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
