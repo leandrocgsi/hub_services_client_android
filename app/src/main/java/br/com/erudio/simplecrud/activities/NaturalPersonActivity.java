@@ -45,7 +45,8 @@ public class NaturalPersonActivity extends Activity implements View.OnClickListe
         editTextCpf = (EditText) findViewById(R.id.et_cpf);
         editTextBirthday = (EditText) findViewById(R.id.et_birthday);
 
-        Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
+        Button buttonSubmit = (Button) findViewById(R.id.btn_save);
+
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
         api = ApiUtils.getNaturalPersonAPIService();

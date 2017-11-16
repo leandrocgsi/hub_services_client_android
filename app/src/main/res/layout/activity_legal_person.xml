@@ -39,12 +39,22 @@
         android:hint="@string/hint_cnpj"/>
 
     <Button
-        android:id="@+id/btn_submit"
+        android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:background="@color/colorAction"
         android:text="@string/action_save"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@color/colorAction"
+        android:onClick="returnToMain"
+        android:text="@string/action_update"
         android:textColor="@android:color/white" />
 
     <Button

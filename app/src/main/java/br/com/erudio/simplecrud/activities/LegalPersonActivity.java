@@ -1,6 +1,7 @@
 package br.com.erudio.simplecrud.activities;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,8 @@ public class LegalPersonActivity extends Activity implements View.OnClickListene
     private EditText editTextCnpj;
     private EditText editTradeName;
 
+    ProgressDialog pd;
+
     private Button buttonSubmit;
 
     private LegalPersonAPIService api;
@@ -43,75 +46,93 @@ public class LegalPersonActivity extends Activity implements View.OnClickListene
         editTextCnpj = (EditText) findViewById(R.id.et_cnpj);
         editTradeName = (EditText) findViewById(R.id.et_trading_name);
 
-        Button buttonSubmit = (Button) findViewById(R.id.btn_submit);
+        Button buttonSave = (Button) findViewById(R.id.btn_save);
+        Button buttonUpdate = (Button) findViewById(R.id.btn_update);
         textViewResponse = (TextView) findViewById(R.id.tv_response);
 
-        Intent data = getIntent();
-        final String iddata = data.getStringExtra("id");
-        if(iddata != null) {
-            /*btnsave.setVisibility(View.GONE);
-            btnTampildata.setVisibility(View.GONE);
-            btnupdate.setVisibility(View.VISIBLE);
-            btndelete.setVisibility(View.VISIBLE);*/
-            editTextCompanyName.setText(data.getStringExtra("et_company_name"));
-            editTradeName.setText(data.getStringExtra("et_trading_name"));
-            editTextCnpj.setText(data.getStringExtra("et_cnpj"));
-        }
-
-        api = ApiUtils.getLegalPersonAPIService();
-
-        buttonSubmit.setOnClickListener(this);
-    }
-
-    private void insertPerson(){
+        pd = new ProgressDialog(this);
 
         String companyName = editTextCompanyName.getText().toString().trim();
         String tradeName = editTradeName.getText().toString().trim();
         String cnpj = editTextCnpj.getText().toString().trim();
 
-        LegalPerson legalPerson = new LegalPerson();
+        final LegalPerson legalPerson = new LegalPerson();
         legalPerson.setNameTradeName(tradeName);
         legalPerson.setCompanyName(companyName);
         legalPerson.setCpfcnpj(cnpj);
 
-        api.savePerson(legalPerson).enqueue(new Callback<LegalPerson>() {
+        api = ApiUtils.getLegalPersonAPIService();
 
-            @Override
-            public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
-                if(response.isSuccessful()) {
-                    showResponse(response.body().toString());
-                    Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
+        Intent data = getIntent();
+        final String iddata = data.getStringExtra("id");
+        if(iddata == null) {
+            buttonSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pd.setMessage("send data ... ");
+                    pd.setCancelable(false);
+                    pd.show();
+
+                    api.savePerson(legalPerson).enqueue(new Callback<LegalPerson>() {
+
+                        @Override
+                        public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
+                            if(response.isSuccessful()) {
+                                showResponse(response.body().toString());
+                                Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LegalPerson> call, Throwable t) {
+                            showErrorMessage();
+                            Log.e(TAG, "Unable to submit legalPerson to API.");
+                        }
+                    });
                 }
-            }
+            });
+        } else {
+            buttonSave.setVisibility(View.GONE);
+            buttonUpdate.setVisibility(View.VISIBLE);
 
-            @Override
-            public void onFailure(Call<LegalPerson> call, Throwable t) {
-                showErrorMessage();
-                Log.e(TAG, "Unable to submit legalPerson to API.");
-            }
-        });
+            legalPerson.setId(Long.valueOf(iddata));
+
+            editTextCompanyName.setText(data.getStringExtra("et_company_name"));
+            editTradeName.setText(data.getStringExtra("et_trading_name"));
+            editTextCnpj.setText(data.getStringExtra("et_cnpj"));
+
+            buttonUpdate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pd.setMessage("update ....");
+                    pd.setCancelable(false);
+                    pd.show();
+
+                    api.updatePerson(legalPerson.getId(), legalPerson).enqueue(new Callback<LegalPerson>() {
+
+                        @Override
+                        public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {
+                            if(response.isSuccessful()) {
+                                showResponse(response.body().toString());
+                                Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LegalPerson> call, Throwable t) {
+                            showErrorMessage();
+                            Log.e(TAG, "Unable to submit legalPerson to API.");
+                        }
+                    });
+                }
+            });
+
+        }
     }
-
-    /*private void getAllLegalPersons() {
-        Call<List<LegalPerson>> getAllLegalPersonsCall = api.getPessoas();
-
-        getAllLegalPersonsCall.enqueue(new Callback<List<LegalPerson>>() {
-            @Override
-            public void onResponse(Call<List<LegalPerson>> call, Response<List<LegalPerson>> response) {
-                displayLegalPerson(response.body().get(0));
-            }
-
-            @Override
-            public void onFailure(Call<List<LegalPerson>> call, Throwable t) {
-                Log.e(TAG, "Error occured while fetching legalPerson.");
-            }
-        });
-    }*/
-
 
     @Override
     public void onClick(View view) {
-        insertPerson();
+        //TODO
     }
 
     public void returnToMain(View view) {

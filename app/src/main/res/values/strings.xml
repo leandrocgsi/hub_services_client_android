@@ -8,6 +8,8 @@
     <string name="hint_cnpj">CNPJ</string>
     <string name="hint_birthday">Birthday</string>
     <string name="action_save">Save</string>
+    <string name="action_update">Update</string>
+    <string name="action_remove">Delete</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_menu">Menu</string>
 
