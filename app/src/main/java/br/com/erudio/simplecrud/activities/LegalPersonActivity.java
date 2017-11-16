@@ -28,7 +28,7 @@ public class LegalPersonActivity extends AppCompatActivity {
     private EditText editTextCnpj;
     private EditText editTradeName;
 
-    private LegalPerson legalPerson = new LegalPerson();
+    private LegalPerson legalPerson;
 
     private LegalPersonAPIService api;
 
@@ -119,6 +119,7 @@ public class LegalPersonActivity extends AppCompatActivity {
                 String tradeName = editTradeName.getText().toString().trim();
                 String cnpj = editTextCnpj.getText().toString().trim();
 
+                legalPerson = new LegalPerson();
                 legalPerson.setNameTradeName(tradeName);
                 legalPerson.setCompanyName(companyName);
                 legalPerson.setCpfcnpj(cnpj);
