@@ -1,5 +1,6 @@
 package br.com.erudio.simplecrud.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LegalPersonActivity extends AppCompatActivity {
+public class LegalPersonActivity extends Activity {
 
     private static final String TAG = LegalPersonActivity.class.getSimpleName();
     private TextView textViewResponse;
