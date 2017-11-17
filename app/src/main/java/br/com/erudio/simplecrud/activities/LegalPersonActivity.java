@@ -107,7 +107,7 @@ public class LegalPersonActivity extends Activity {
                 String tradeName = editTradeName.getText().toString().trim();
                 String cnpj = editTextCnpj.getText().toString().trim();
 
-                Call<LegalPerson> call = api.savePerson(new LegalPerson(Long.valueOf(iddata), companyName, tradeName, cnpj));
+                Call<LegalPerson> call = api.savePerson(new LegalPerson(companyName, tradeName, cnpj));
                 call.enqueue(new Callback<LegalPerson>() {
                     @Override
                     public void onResponse(Call<LegalPerson> call, Response<LegalPerson> response) {

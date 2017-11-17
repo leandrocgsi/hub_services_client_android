@@ -20,6 +20,12 @@ public class LegalPerson extends Person{
         this.companyName = companyName;
     }
 
+    public LegalPerson(String companyName, String nameTradeName, String cpfcnpj) {
+        this.cpfcnpj = cpfcnpj;
+        this.nameTradeName = nameTradeName;
+        this.companyName = companyName;
+    }
+
     public String getCompanyName() {
         return companyName;
     }
