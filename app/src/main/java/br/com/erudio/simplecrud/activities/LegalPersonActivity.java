@@ -60,6 +60,9 @@ public class LegalPersonActivity extends Activity {
             editTextCompanyName.setText(data.getStringExtra("et_company_name"));
             editTradeName.setText(data.getStringExtra("et_trading_name"));
             editTextCnpj.setText(data.getStringExtra("et_cnpj"));
+        } else {
+            buttonSave.setVisibility(View.VISIBLE);
+            buttonUpdate.setVisibility(View.GONE);
         }
 
         pd = new ProgressDialog(this);
