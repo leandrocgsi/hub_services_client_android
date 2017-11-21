@@ -86,6 +86,7 @@ public class LegalPersonActivity extends Activity {
                             showResponse(response.body().toString());
                             Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
                         }
+                        returnToMain();
                     }
 
                     @Override
@@ -118,6 +119,7 @@ public class LegalPersonActivity extends Activity {
                             showResponse(response.body().toString());
                             Log.i(TAG, "legalPerson submitted to API." + response.body().toString());
                         }
+                        returnToMain();
                     }
 
                     @Override
@@ -131,17 +133,15 @@ public class LegalPersonActivity extends Activity {
         });
     }
 
-    public void returnToMain(View view) {
-        //setContentView(R.layout.activity_main);
-
+    public void returnToMain() {
         int timeout = 50;
-        Timer t2 = new Timer();
-        t2.schedule(new TimerTask() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
 
             @Override
             public void run() {
                 finish();
-                Intent homepage = new Intent(LegalPersonActivity.this, MainActivity.class);
+                Intent homepage = new Intent(LegalPersonActivity.this, ListLegalPersonActivity.class);
                 startActivity(homepage);
             }
         }, timeout);
