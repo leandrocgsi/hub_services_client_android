@@ -24,7 +24,6 @@ public interface AccountAPIService {
     Call<Account> createAccount(@Body Account account);
 
     @PUT("/api/account/{id}")
-    @FormUrlEncoded
     Call<Account> updateAccount(@Path("id") long id, @Body Account account);
 
     @DELETE("/api/conta/{id}")

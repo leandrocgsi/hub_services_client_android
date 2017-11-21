@@ -23,7 +23,6 @@ public interface TransactionAPIService {
     Call<Transaction> createTransaction(@Body Transaction transaction);
 
     @PUT("/api/transacao/estornoTransaction/{id}")
-    @FormUrlEncoded
     Call<Transaction> updateTransaction(@Path("id") long id);
 
 }

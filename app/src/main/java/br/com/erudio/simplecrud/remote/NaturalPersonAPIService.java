@@ -24,7 +24,6 @@ public interface NaturalPersonAPIService {
     Call<NaturalPerson> savePerson(@Body NaturalPerson naturalPerson);
 
     @PUT("/api/pessoaFisica/{id}")
-    @FormUrlEncoded
     Call<NaturalPerson> updatePerson(@Path("id") long id, @Body NaturalPerson naturalPerson);
 
     @DELETE("/api/pessoaFisica/{id}")
