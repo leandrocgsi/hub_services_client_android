@@ -6,7 +6,6 @@ import br.com.erudio.simplecrud.model.LegalPerson;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -24,7 +23,6 @@ public interface LegalPersonAPIService {
     Call<LegalPerson> savePerson(@Body LegalPerson legalPerson);
 
     @PUT("/api/pessoaJuridica/{id}")
-    @FormUrlEncoded
     Call<LegalPerson> updatePerson(@Path("id") long id, @Body LegalPerson legalPerson);
 
     @DELETE("/api/pessoaJuridica/{id}")
