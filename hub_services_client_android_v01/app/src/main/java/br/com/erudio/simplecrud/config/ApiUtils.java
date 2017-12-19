@@ -12,6 +12,7 @@ public class ApiUtils {
     public static NaturalPersonAPIService getNaturalPersonAPIService() {
         return RetrofitBuilder.getClient(BASE_URL).create(NaturalPersonAPIService.class);
     }
+
     public static LegalPersonAPIService getLegalPersonAPIService() {
         return RetrofitBuilder.getClient(BASE_URL).create(LegalPersonAPIService.class);
     }
